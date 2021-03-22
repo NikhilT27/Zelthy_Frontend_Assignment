@@ -6,6 +6,8 @@ import www from "../images/www.svg";
 import heart from "../images/heart.svg";
 import pen from "../images/pen.svg";
 import trash from "../images/trash.svg";
+import emptyHeart from "../images/emptyHeart.svg";
+import close from "../images/close.svg";
 
 export default function EachUser({ data }) {
   const [userData, setUserData] = useState({
@@ -56,7 +58,7 @@ export default function EachUser({ data }) {
           {liked ? (
             <img src={heart} alt="" className="each-user-symbol" />
           ) : (
-            <img src={telephone} alt="" className="each-user-symbol" />
+            <img src={emptyHeart} alt="" className="each-user-symbol" />
           )}
         </button>
         <button onClick={() => setOpenModal(!openModal)}>
@@ -66,27 +68,57 @@ export default function EachUser({ data }) {
           <div className="modal-box">
             <div className="modal-content">
               <div className="modal-title">
-                <h2>Basic Modal</h2>
+                <h3>Basic Modal</h3>
                 <button onClick={() => setOpenModal(!openModal)}>
-                  <img src={trash} alt="" className="modal-close" />
+                  <img src={close} alt="" className="modal-close" />
                 </button>
               </div>
-              <form>
-                <div>
+              <form
+                onSubmit={(e) => console.log(e.target.name)}
+                className="modal-form"
+              >
+                <div className="modal-form-option">
                   <label>Name: </label>
-                  <input type="text" placeholder={userData.name}></input>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder={userData.name}
+                  ></input>
                 </div>
-                <div>
+                <div className="modal-form-option">
                   <label>Email: </label>
-                  <input type="text" placeholder={userData.email}></input>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder={userData.email}
+                  ></input>
                 </div>
-                <div>
+                <div className="modal-form-option">
                   <label>Phone: </label>
-                  <input type="text" placeholder={userData.phone}></input>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder={userData.phone}
+                  ></input>
                 </div>
-                <div>
+                <div className="modal-form-option">
                   <label>Website: </label>
-                  <input type="text" placeholder={userData.website}></input>
+                  <input
+                    type="text"
+                    name="website"
+                    placeholder={userData.website}
+                  ></input>
+                </div>
+                <div className="modal-form-submit">
+                  <button
+                    onClick={() => setOpenModal(!openModal)}
+                    className="modal-form-button modal-cancel"
+                  >
+                    Cancel
+                  </button>
+                  <button type="submit" className="modal-form-button modal-ok">
+                    OK
+                  </button>
                 </div>
               </form>
             </div>

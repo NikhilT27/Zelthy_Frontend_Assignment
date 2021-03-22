@@ -86,8 +86,45 @@ $user-gray: #646464;
   }
 
   &-close {
-    width: 25px;
+    width: 20px;
     height: auto;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+    &-option {
+      padding: 20px;
+    }
+
+    &-submit {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &-button {
+      font-size: 16px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  }
+
+  &-cancel {
+    color: $user-gray;
+  }
+
+  &-ok {
+    color: white;
+    background-color: rgb(41, 199, 252);
+    margin-right: 20px;
   }
 }
 
