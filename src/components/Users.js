@@ -15,12 +15,7 @@ export default function Users() {
       "https://jsonplaceholder.typicode.com/users"
     );
 
-    if (!response) {
-      console.log("Loading");
-    }
-
     if (response) {
-      console.log(response.data);
       setUserData(response.data);
     }
   };
