@@ -10,6 +10,7 @@ import emptyHeart from "../images/emptyHeart.svg";
 import close from "../images/close.svg";
 
 export default function EachUser({ data }) {
+  const [imageName, setImageName] = useState(data.name);
   const [userData, setUserData] = useState({
     name: data.name,
     email: data.email,
@@ -40,6 +41,7 @@ export default function EachUser({ data }) {
 
   function onFormSubmit(event) {
     event.preventDefault();
+    setOpenModal(!openModal);
     let name = getFormData("name");
     let email = getFormData("email");
     let phone = getFormData("phone");
@@ -58,7 +60,7 @@ export default function EachUser({ data }) {
   } else {
     return (
       <div className="each-user-box">
-        <ProfileImg name={userData.name} />
+        <ProfileImg name={imageName} />
         <ProfileData userData={userData} />
 
         <div className="each-user-option">
@@ -127,7 +129,7 @@ export default function EachUser({ data }) {
                     Email:{" "}
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     name="email"
                     value={formData.email}
                     placeholder={userData.email}
